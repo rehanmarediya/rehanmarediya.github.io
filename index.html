@@ -626,25 +626,57 @@ nav{
   line-height:1.9;
 }
 .contact-links{
-  display:flex;
-  justify-content:center;
-  gap:1.5rem;
-  flex-wrap:wrap;
+  display:grid;
+  grid-template-columns:repeat(2,minmax(240px,1fr));
+  gap:1rem;
+  justify-items:stretch;
   margin-bottom:3rem;
 }
-.contact-link{
-  display:flex;align-items:center;gap:.6rem;
-  padding:.8rem 1.5rem;
+.contact-card{
+  display:flex;
+  align-items:center;
+  gap:1rem;
+  width:100%;
+  padding:1rem 1.2rem;
   background:var(--card);
   border:1px solid var(--border);
-  border-radius:8px;
+  border-radius:18px;
   color:var(--white);
   text-decoration:none;
-  font-size:.75rem;
-  transition:all .3s;
+  transition:all .3s ease;
+  min-height:92px;
 }
-.contact-link:hover{border-color:var(--cyan);color:var(--cyan);box-shadow:var(--glow);transform:translateY(-3px)}
-.contact-link svg{width:16px;height:16px;flex-shrink:0}
+.contact-card:hover{border-color:var(--cyan);color:var(--cyan);box-shadow:var(--glow);transform:translateY(-4px)}
+.contact-card-icon{
+  width:52px;
+  height:52px;
+  min-width:52px;
+  border-radius:16px;
+  background:rgba(0,245,212,.08);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  color:var(--cyan);
+  flex-shrink:0;
+}
+.contact-card-content{
+  text-align:left;
+}
+.contact-card-label{
+  font-size:.65rem;
+  letter-spacing:.2em;
+  text-transform:uppercase;
+  color:var(--grey);
+  margin-bottom:.35rem;
+}
+.contact-card-value{
+  font-family:var(--font-head);
+  font-size:.95rem;
+  line-height:1.3;
+  color:var(--white);
+  word-break:break-all;
+}
+.contact-card svg{width:20px;height:20px}
 
 /* ─── FOOTER ─── */
 footer{
@@ -662,7 +694,7 @@ footer{
   .timeline{padding-left:1.2rem}
   .avatar-card{width:220px;height:270px}
   .about-stats{grid-template-columns:1fr 1fr}
-  .contact-links{flex-direction:column;align-items:center}
+  .contact-links{grid-template-columns:1fr;align-items:stretch}
 }
 </style>
 </head>
@@ -918,25 +950,41 @@ footer{
     <h2 class="section-title reveal from-bottom">Let's <span class="accent">Connect</span></h2>
     <p class="contact-subtitle reveal from-bottom">I'm actively looking for new opportunities. Whether you have a project in mind, a role to fill, or just want to say hello — my inbox is open.</p>
     <div class="contact-links reveal from-bottom">
-      <a class="contact-link" href="mailto:rehanmarediya26@gmail.com">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 7L2 7"/></svg>
-        Email Me
+      <a class="contact-card" href="mailto:rehanmarediya26@gmail.com">
+        <span class="contact-card-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 7L2 7"/></svg>
+        </span>
+        <div class="contact-card-content">
+          <div class="contact-card-label">Email</div>
+          <div class="contact-card-value">rehanmarediya26@gmail.com</div>
+        </div>
       </a>
-      <a class="contact-link" href="tel:9712576396">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-        Call Me
+      <a class="contact-card" href="https://wa.me/919712576396" target="_blank">
+        <span class="contact-card-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2h-1l-1 1v1c0 .55-.45 1-1 1H8a1 1 0 0 1-1-1v-1L6 17H5a2 2 0 0 1-2-2V7c0-1.1.9-2 2-2h14c1.1 0 2 .9 2 2v8Z"/><path d="M7.5 11.5c1 1.4 2.5 2 4 2.5s3.5.2 4.5-1c.5-.6.4-1.2.2-1.9-.2-.7-.7-1.3-1.3-1.6-.6-.3-1.3-.3-2-.5-.7-.2-1.2-.5-1.5-1.1-.2-.5-.2-1.1-.6-1.5-.4-.4-1-.5-1.5-.4-.6.1-1.1.6-1.3 1.2-.1.5 0 1 .1 1.5.1.5.5 1 .9 1.4Z"/></svg>
+        </span>
+        <div class="contact-card-content">
+          <div class="contact-card-label">WhatsApp</div>
+          <div class="contact-card-value">+91 97125 76396</div>
+        </div>
       </a>
-      <a class="contact-link" href="https://linkedin.com/in/kdpcomp2026rehan055" target="_blank">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
-        LinkedIn Profile
+      <a class="contact-card" href="https://www.linkedin.com/in/kdpcomp2026rehan055" target="_blank">
+        <span class="contact-card-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+        </span>
+        <div class="contact-card-content">
+          <div class="contact-card-label">LinkedIn</div>
+          <div class="contact-card-value">Rehan Marediya</div>
+        </div>
       </a>
-      <a class="contact-link" href="https://github.com/RehanMarediya-2605" target="_blank">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
-        GitHub Profile
-      </a>
-      <a class="contact-link" href="#">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0z"/><circle cx="12" cy="10" r="3"/></svg>
-        Palanpur, Gujarat, India
+      <a class="contact-card" href="https://github.com/rehanmarediya" target="_blank">
+        <span class="contact-card-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+        </span>
+        <div class="contact-card-content">
+          <div class="contact-card-label">GitHub</div>
+          <div class="contact-card-value">@rehanmarediya</div>
+        </div>
       </a>
     </div>
   </div>
